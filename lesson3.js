@@ -3,7 +3,7 @@ const checkArray = (input) => {
 }
 
 const copyArray = (array) => {
-  return Array.from(array);
+  return [...array];
 }
 
 const getFirstArrayElement = (array, counter = 0) => {
@@ -25,7 +25,7 @@ const student = {
 };
 
 const propertiesList = (object) => {
-  return Object.keys(object).join();
+  return Object.keys(object).join("");
 }
 
 const removeObjectElement = (object, element) => {
@@ -44,27 +44,26 @@ const objectSize = (object) => {
 
 const library = [
   {
-    author: 'Bill Gates',
-    title: 'The Road Ahead',
+    author: "Bill Gates",
+    title: "The Road Ahead",
     readingStatus: true
   },
   {
-    author: 'Steve Jobs',
-    title: 'Walter Isaacson',
+    author: "Steve Jobs",
+    title: "Walter Isaacson",
     readingStatus: true
   },
   {
-    author: 'Suzanne Collins',
-    title:  'Mockingjay: The Final Book of The Hunger Games',
+    author: "Suzanne Collins",
+    title:  "Mockingjay: The Final Book of The Hunger Games",
     readingStatus: false
   }
 ];
 
-const bookInfo = (object, status = "readingStatus") => {
-  object.map(item => {
-    console.log(item[status] ?
-      (`You read ${item.title} by ${item.author}`)
-      :
-      (`You don't read ${item.title} by ${item.author}`));
-  })
+const bookInfo = () => {
+  return library.map(item => {
+    return `Reading status: ${item.readingStatus ? "Currently reading" : "Not reading"}, ${item.title} by ${item.author}`
+    })
 }
+
+console.log(bookInfo())
